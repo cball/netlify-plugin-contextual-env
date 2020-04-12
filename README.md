@@ -6,10 +6,15 @@ Say you have an ENV in your API code called `DATABASE_URL`. If you use this plug
 
 For example:
 
-- A `staging` branch, could automatically set `DATABASE_URL` to the value of `STAGING_DATABASE_URL` if it exists.
-- A `production` context could automatically set `DATABASE_URL` to the value of `PRODUCTION_DATABASE_URL` if it exists.
+- A `staging` branch, would automatically set `DATABASE_URL` to the value of `STAGING_DATABASE_URL` if it exists.
+- A `production` context would automatically set `DATABASE_URL` to the value of `PRODUCTION_DATABASE_URL` if it exists.
+- A `deploy-preview` context (used for Pull Requests) would automatically set `DATABASE_URL` to the value of `DEPLOY_PREVIEW_DATABASE_URL` if it exists.
 
 This allows you to have per-environment or per-context environment variables, without exposing those variables in your `netlify.toml` config.
+
+If you'd rather use a suffix rather than the default prefix configuration, pass suffix to the inputs below.
+
+For the examples above, it would use the values `DATABASE_URL_STAGING`, `DATABASE_URL_PRODUCTION`, and `DATABASE_URL_DEPLOY_PREVIEW` respectively.
 
 # Usage
 
