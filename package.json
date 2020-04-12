@@ -1,0 +1,18 @@
+{
+  "name": "netlify-plugin-env",
+  "version": "1.0.0",
+  "description": "A Netlify plugin to override ENV vars based on a branch or context",
+  "main": "src/index",
+  "repository": "https://github.com/cball/netlify-plugin-env",
+  "bugs": {
+    "url": "https://github.com/cball/netlify-plugin-env/issues"
+  },
+  "author": "Chris Ball",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "netlify",
+    "netlify-plugin",
+    "env"
+  ]
+}

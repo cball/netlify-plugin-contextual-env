@@ -1,0 +1,5 @@
+name: netlify-plugin-env
+inputs:
+  - name: mode
+    required: false
+    default: prefix
