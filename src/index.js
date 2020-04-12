@@ -47,19 +47,14 @@ module.exports = {
     });
 
     if (replaced.length) {
-      // Write a file
+      // Write an env file so we can source it during build
       const file = fs.createWriteStream(".env");
       replaced.forEach(function (v) {
         file.write(`${v}\n`);
       });
       file.end();
 
-      // Call the file
-      exec("source .env");
-
-      // ALternatively, write .env?
-
-      console.log(`Replaced ${replaced.length} ENVs`);
+      console.log(`Replaced ${replaced.length} ENVs and wrote .env file`);
     } else {
       console.log(`Nothing found... keeping default ENVs`);
     }

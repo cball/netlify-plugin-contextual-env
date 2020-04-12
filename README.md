@@ -20,6 +20,8 @@ For the examples above, it would use the values `DATABASE_URL_STAGING`, `DATABAS
 
 # Usage
 
+## Add the plugin
+
 Add a `[[plugins]]` entry to your `netlify.toml` file:
 
 ```toml
@@ -32,3 +34,18 @@ package = 'netlify-plugin-env'
 | name   | description                                                         | default  |
 | ------ | ------------------------------------------------------------------- | -------- |
 | `mode` | The way to append the context or branch name (`prefix` or `suffix`) | `prefix` |
+
+## Update your build command
+
+Update your build command to "source" the `.env` file that gets created for you. **Note: your `.env` should always be in `.gitignore`!** This script writes a temporary .env file for you at build time, so updated values can be used during the build process.
+
+You can do this in `netlify.toml`:
+
+```toml
+[build]
+  command = ". ./.env && yarn build"
+```
+
+Or through the Netlify UI if you don't have a `build` section defined in `netlify.toml`:
+
+![image](https://user-images.githubusercontent.com/14339/79069048-45bbd680-7c99-11ea-816b-fec8ee851672.png)
