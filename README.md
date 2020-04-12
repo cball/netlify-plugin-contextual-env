@@ -1,6 +1,6 @@
 # netlify-plugin-env
 
-This plugin swaps out ENV vars on Netlify at build time. Here's how it works.
+This plugin swaps out ENV vars on Netlify at build time. Here's how it works:
 
 Say you have an ENV in your API code called `DATABASE_URL`. If you use this plugin, you'll be able to override that value based on a Context or Branch name.
 
