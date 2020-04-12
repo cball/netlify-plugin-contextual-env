@@ -1,6 +1,6 @@
 {
   "name": "netlify-plugin-env",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Netlify plugin to override ENV vars based on a branch or context",
   "main": "src/index",
   "repository": "https://github.com/cball/netlify-plugin-env",
