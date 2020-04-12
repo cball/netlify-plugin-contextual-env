@@ -12,7 +12,7 @@ function setEnvWithValue(key, contextOrBranch, mode) {
 
     if (process.env[prefixedEnvVar]) {
       foundOne = true;
-      console.log(`Setting ${prefixedEnvVar} to ${key}.`);
+      console.log(`Setting ${key} to the value from ${prefixedEnvVar}.`);
       process.env[key] = process.env[prefixedEnvVar];
     }
   } else {
@@ -20,7 +20,7 @@ function setEnvWithValue(key, contextOrBranch, mode) {
 
     if (process.env[suffixedEnvVar]) {
       foundOne = true;
-      console.log(`Setting ${suffixedEnvVar} to ${key}.`);
+      console.log(`Setting ${key} to the value from ${suffixedEnvVar}.`);
       process.env[key] = process.env[suffixedEnvVar];
     }
   }
