@@ -16,6 +16,8 @@ If you'd rather use a suffix rather than the default prefix configuration, pass 
 
 For the examples above, it would use the values `DATABASE_URL_STAGING`, `DATABASE_URL_PRODUCTION`, and `DATABASE_URL_DEPLOY_PREVIEW` respectively.
 
+![image](https://user-images.githubusercontent.com/14339/79061346-6403e100-7c5d-11ea-86ef-34d2857b388b.png)
+
 # Usage
 
 Add a `[[plugins]]` entry to your `netlify.toml` file:
