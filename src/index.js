@@ -1,3 +1,6 @@
+const { exec } = require("child_process");
+const fs = require("fs");
+
 /**
  * Overrides an ENV var with a value if it exists
  * @param {*} key the key to overwrite if found
@@ -6,26 +9,27 @@
  */
 function setEnvWithValue(key, contextOrBranch, mode) {
   let foundOne = false;
+  let found;
 
   if (mode === "prefix") {
     const prefixedEnvVar = `${contextOrBranch}_${key}`;
 
     if (process.env[prefixedEnvVar]) {
-      foundOne = true;
       console.log(`Setting ${key} to the value from ${prefixedEnvVar}.`);
       process.env[key] = process.env[prefixedEnvVar];
+      found = `${key}=${process.env[prefixedEnvVar]}`;
     }
   } else {
     const suffixedEnvVar = `${key}_${contextOrBranch}`;
 
     if (process.env[suffixedEnvVar]) {
-      foundOne = true;
       console.log(`Setting ${key} to the value from ${suffixedEnvVar}.`);
       process.env[key] = process.env[suffixedEnvVar];
+      found = `${key}=${process.env[suffixedEnvVar]}`;
     }
   }
 
-  return foundOne;
+  return found;
 }
 
 module.exports = {
@@ -38,10 +42,23 @@ module.exports = {
       const foundContext = setEnvWithValue(key, context, inputs.mode);
       const foundBranch = setEnvWithValue(key, branch, inputs.mode);
 
-      if (foundContext || foundBranch) replaced.push(key);
+      if (foundContext) replaced.push(foundContext);
+      if (foundBranch) replaced.push(foundBranch);
     });
 
     if (replaced.length) {
+      // Write a file
+      const file = fs.createWriteStream(".env");
+      replaced.forEach(function (v) {
+        file.write(`${v}\n`);
+      });
+      file.end();
+
+      // Call the file
+      exec("source .env");
+
+      // ALternatively, write .env?
+
       console.log(`Replaced ${replaced.length} ENVs`);
     } else {
       console.log(`Nothing found... keeping default ENVs`);
