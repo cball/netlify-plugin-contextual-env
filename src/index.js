@@ -13,7 +13,7 @@ function setEnvWithValue(key, contextOrBranch, mode) {
   const envVar = mode === 'prefix' ? `${contextOrBranch}_${key}` : `${key}_${contextOrBranch}`;
 
   if (!process.env[envVar]) {
-    return ''
+    return;
   }
 
   console.log(`Setting ${key} to the value from ${envVar}.`);
