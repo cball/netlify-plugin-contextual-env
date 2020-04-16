@@ -1,4 +1,4 @@
-# netlify-plugin-env
+# netlify-plugin-contextual-env
 
 This plugin swaps out ENV vars on Netlify at build time. Here's how it works:
 

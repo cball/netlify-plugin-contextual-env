@@ -1,4 +1,4 @@
-name: netlify-plugin-env
+name: netlify-plugin-contextual-env
 inputs:
   - name: mode
     required: false
