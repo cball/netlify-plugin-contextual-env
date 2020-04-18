@@ -4,6 +4,8 @@ This plugin swaps out ENV vars on Netlify at build time. Here's how it works:
 
 Say you have an ENV in your API code called `DATABASE_URL`. If you use this plugin, you'll be able to override that value based on a Context or Branch name.
 
+Right now, this plugin writes a `.env` file in the root of the project with the new values, which most build tooling will pick up on. Unfortunately, we can't set `proces.env` directly until it is [supported by Netlify Build](https://github.com/netlify/build/issues/1129))
+
 For example:
 
 - A `staging` branch, would automatically set `DATABASE_URL` to the value of `STAGING_DATABASE_URL` if it exists.
