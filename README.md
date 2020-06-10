@@ -26,7 +26,7 @@ Add a `[[plugins]]` entry to your `netlify.toml` file:
 
 ```toml
 [[plugins]]
-package = 'netlify-plugin-env'
+package = 'netlify-plugin-contextual-env'
   [plugins.inputs]
   mode = 'prefix'
 ```
