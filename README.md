@@ -22,7 +22,9 @@ For the examples above, it would use the values `DATABASE_URL_STAGING`, `DATABAS
 
 ## Add the plugin
 
-Add a `[[plugins]]` entry to your `netlify.toml` file:
+You can install this plugin in the Netlify UI from this [direct in-app installation link](https://app.netlify.com/plugins/netlify-plugin-contextual-env/install) or from the [Plugins directory](https://app.netlify.com/plugins).
+
+For file-based installation, add a `[[plugins]]` entry to your `netlify.toml` file:
 
 ```toml
 [[plugins]]
@@ -34,3 +36,9 @@ package = 'netlify-plugin-contextual-env'
 | name   | description                                                         | default  |
 | ------ | ------------------------------------------------------------------- | -------- |
 | `mode` | The way to append the context or branch name (`prefix` or `suffix`) | `prefix` |
+
+To complete file-based installation, from your project's base directory, use npm, yarn, or any other Node.js package manager to add the plugin to `devDependencies` in `package.json`.
+
+```bash
+npm install -D netlify-plugin-contextual-env
+```
